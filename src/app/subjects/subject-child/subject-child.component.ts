@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { DataModel } from 'src/app/data-model.interface';
 
 @Component({
@@ -14,10 +14,29 @@ export class SubjectChildComponent implements OnInit {
 
   log: string[] = [];
   connected: boolean = false;
+  subscription: Subscription;
+
+  logData(data: DataModel) {
+    this.log.push("Timestamp: ", data.timeStamp + " Data: " + data.data);
+  }
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  connect(){
+    this.log.push("Connected");
+    this.connected = true;
+    this.subscription = this.Subject.subscribe(
+    (data: DataModel) => { this.logData(data) },
+    (err) => { this.connected = false;},
+    () => { this.connected = false; this.log.push("Finished.")}
+    )
+  }
+
+  disconnect(){
+
   }
 
 }
