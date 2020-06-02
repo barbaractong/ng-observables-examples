@@ -1,0 +1,36 @@
+<mat-card class="card">
+    <div class="form-container">
+        <mat-form-field class="documento" appearance="outline" floatLabel = "always">
+            <mat-label>Documento</mat-label>
+            <mat-select>
+                <mat-option value="option">Option</mat-option>
+              </mat-select>
+            <mat-hint></mat-hint>
+          </mat-form-field> 
+
+          <div class="content-container">
+            <mat-form-field class="documento" appearance="outline" floatLabel = "always">
+                <mat-label>Campo</mat-label>
+                <mat-select>
+                    <mat-option value="option">Option</mat-option>
+                  </mat-select>
+                <mat-hint></mat-hint>
+              </mat-form-field>
+
+              <mat-form-field class="acuracia" appearance="outline" floatLabel = "always">
+                <mat-label>Acurácia (%)</mat-label>
+                    <input matInput>
+                <mat-hint></mat-hint>
+              </mat-form-field>
+
+              <mat-form-field class="acuracia" appearance="outline" floatLabel = "always">
+                <mat-label>Similaridade (%)</mat-label>
+                    <input matInput>
+                <mat-hint></mat-hint>
+              </mat-form-field>
+          </div>
+          <div class="button-container">
+              <button mat-raised-button color="primary">Salvar</button>
+          </div>
+    </div>    
+</mat-card>
