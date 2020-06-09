@@ -1,0 +1,18 @@
+[
+    {
+        "documentType": 1,
+        "document": "Comprovante de residência",
+        "documentField": {
+            "zipCode": "CEP",
+            "address": "Logradouro"
+        }
+    },
+
+    {
+        "documentType": 2,
+        "document": "Comprovante de identificação",
+        "documentField": {
+            "identification": "RG/CPF"
+        }
+    }
+]

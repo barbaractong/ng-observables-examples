@@ -1,0 +1,9 @@
+<mat-checkbox [(ngModel)]="enable">Enable/Disable</mat-checkbox>
+
+<p>Before ng Template</p>
+
+<h1 *ngIf="enable else template">Enable!</h1>
+
+<ng-template #template>
+    <h1>From ng template!</h1>
+</ng-template>

@@ -1,0 +1,32 @@
+table {
+width: 1130px;
+box-shadow: none;
+border-collapse: collapse;
+border: 1px solid #D2DDFF;
+text-align: left;
+}
+
+th {
+background-color: #F7F9FF;
+border-bottom: 1px solid #D2DDFF;
+border-top: 1px solid #D2DDFF;
+}
+
+th.mat-header-cell{
+    color: #333333;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+td.mat-cell { 
+border: none;
+color: #333333;
+font-weight: lighter;
+font-size: 12px;
+}
+
+tr.mat-row {
+border: 1px solid #ececec;
+}
+            

@@ -1,0 +1,61 @@
+[
+    {
+        "documento": {
+            "código": 1111,
+            "campos": [
+                {
+                    "código": 1111,
+                    "acuracia": 55.55,
+                    "similaridade": 55.55
+                }
+            ]
+        },
+        "descricaoLogin": "descricaoLogin",
+        "ativo": true
+    },
+
+    {
+        "documento": {
+            "código": 1112,
+            "campos": [
+                {
+                    "código": 1112,
+                    "acuracia": "acuracia",
+                    "similaridade": 55.1
+                }
+            ]
+        },
+        "descricaoLogin": "descricaoLogin",
+        "ativo": true
+    },
+
+    {
+        "documento": {
+            "código": 1112,
+            "campos": [
+                {
+                    "código": 1112,
+                    "acuracia": "acuracia",
+                    "similaridade": 12.3
+                }
+            ]
+        },
+        "descricaoLogin": "descricaoLogin",
+        "ativo": true
+    },
+
+    {
+        "documento": {
+            "código": 1111,
+            "campos": [
+                {
+                    "código": 1111,
+                    "acuracia": 90.55,
+                    "similaridade": 98.31
+                }
+            ]
+        },
+        "descricaoLogin": "descricaoLogin",
+        "ativo": true
+    }
+]

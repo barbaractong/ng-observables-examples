@@ -1,0 +1,12 @@
+<mat-radio-group [(ngModel)]="fieldName">
+    <mat-radio-button value="form-1"> Form 1 </mat-radio-button>
+    <mat-radio-button value="form-2"> Form 2 </mat-radio-button>
+</mat-radio-group>
+
+<section [ngSwitch]="fieldName">
+    <p *ngSwitchCase=" 'form-1' ">
+        <app-param-forms></app-param-forms>
+    </p>
+    <p *ngSwitchCase=" 'form-2' ">
+    </p>
+</section>

@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-title>
+        Select
+    </mat-card-title>
+    <mat-card-content>
+        <section>
+            <p>Select a field:</p>
+        <mat-radio-group [(ngModel)]="fieldName">
+            <mat-radio-button value = "section-1">
+                Section 1
+            </mat-radio-button>
+            <mat-radio-button value = "section-2">
+                Section 2
+            </mat-radio-button>
+        </mat-radio-group>
+        </section>
+        <br><br>
+        <section [ngSwitch] = "fieldName">
+            <p *ngSwitchCase = " 'section-1' ">Section 1</p>
+            <p *ngSwitchCase = " 'section-2' ">Section 2</p>
+        </section>
+    </mat-card-content>
+</mat-card>

@@ -20,6 +20,16 @@ import { ThemeFormsComponent } from './theme-forms/theme-forms.component';
 import { TemplateDrivenFormsComponent } from './template-driven-forms/template-driven-forms.component';
 import { NativeFormValidationComponent } from './native-form-validation/native-form-validation.component';
 import { FormValidationComponent } from './form-validation/form-validation.component';
+import { NgSwitchSampleComponent } from './ng-switch-sample/ng-switch-sample.component';
+import { NgTemplateSampleComponent } from './ng-template-sample/ng-template-sample.component';
+import { BVRascunhosComponent } from './bv-rascunhos/bv-rascunhos.component';
+import { TabsComponent } from './BV-rascunhos/tabs/tabs.component';
+import { TableComponent } from './BV-rascunhos/table/table.component';
+import { ParamFormsComponent } from './bv-rascunhos/param-forms/param-forms.component';
+import { PureComponent } from './pure/pure.component';
+import { ToolbarComponent } from './pure/toolbar/toolbar.component';
+import { DynamicFormsFieldComponent } from './dynamic-forms-field/dynamic-forms-field.component';
+import { DynamicFormFieldComponent } from './src/app/bv-rascunhos/dynamic-form-field/dynamic-form-field.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +46,16 @@ import { FormValidationComponent } from './form-validation/form-validation.compo
     TemplateDrivenFormsComponent,
     NativeFormValidationComponent,
     FormValidationComponent,
+    NgSwitchSampleComponent,
+    NgTemplateSampleComponent,
+    BVRascunhosComponent,
+    TabsComponent,
+    TableComponent,
+    ParamFormsComponent,
+    PureComponent,
+    ToolbarComponent,
+    DynamicFormsFieldComponent,
+    DynamicFormFieldComponent,
   ],
   imports: [
     BrowserModule,

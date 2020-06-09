@@ -1,0 +1,83 @@
+<!-- 
+<mat-card class="card">
+  <div class="form-container">
+    <mat-form-field class="documento" appearance="outline" floatLabel="always">
+      <mat-label>Documento</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let item of objDoc" value="option">{{item.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="content-container">
+      <mat-form-field class="documento" appearance="outline" floatLabel="always">
+        <mat-label>Campo</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let item of dropdownCampo" value="option">{{item}}</mat-option>
+        </mat-select>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+
+      <mat-form-field class="acuracia" appearance="outline" floatLabel="always">
+        <mat-label>Acurácia (%)</mat-label>
+        <input matInput>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+
+      <mat-form-field class="acuracia" appearance="outline" floatLabel="always">
+        <mat-label>Similaridade (%)</mat-label>
+        <input matInput>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="button-container">
+      <button mat-raised-button color="primary">Salvar</button>
+    </div>
+  </div>
+</mat-card>
+
+
+<mat-form-field class="documento" appearance="outline" floatLabel="always">
+  <mat-label>Documento</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option *ngFor="let item of objDoc" [value]="item.type">{{item.name}}</mat-option>
+  </mat-select>
+</mat-form-field>
+<p>{{selected}}</p>
+-->
+<form [formGroup]="paramForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="documento" appearance="outline" floatLabel="always">
+    <mat-label>Documento</mat-label>
+    <mat-select>
+      <mat-option (onSelectionChange)="action($event)" *ngFor="let item of fieldList" [value]="item.document">
+        {{item.document}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <div class="content-container">
+    <mat-form-field class="documento" appearance="outline" floatLabel="always">
+      <mat-label>Campo</mat-label>
+      <mat-select>
+        <mat-option (onSelectionChange)="action($event)" *ngFor="let title of field" [value]="title">{{title}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <div *ngIf="showInput">
+      <mat-form-field class="acuracia" appearance="outline" floatLabel="always">
+        <mat-label>Acurácia (%)</mat-label>
+        <input type="number" formControlName="acuracy" matInput>
+      </mat-form-field>
+    </div>
+  
+    <mat-form-field class="acuracia" appearance="outline" floatLabel="always">
+      <mat-label>Similaridade (%)</mat-label>
+      <input type="number" formControlName="similarity" matInput>
+    </mat-form-field>
+  
+  </div>
+  
+  <button mat-button [disabled] = "!paramForm.valid" type="button" color="primary" (click)="addField()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+ 
+</form>

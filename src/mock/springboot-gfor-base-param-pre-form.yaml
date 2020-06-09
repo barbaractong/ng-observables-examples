@@ -1,0 +1,1315 @@
+swagger: "2.0"
+info:
+  description: "Parametrização Pré Formalização Backend Service"
+  version: "1.3.0"
+  title: "Parametrização Pré Formalização Backend Service"
+host: "springboot-gfor-base-param-pre-form.appdes.bvnet.bv"
+basePath: "/v1"
+schemes:
+  - "https"
+paths:
+  /consultarParametroGeral:
+    get:
+      tags:
+      - "ParametrizacaoGeralPreFormalizacao"
+      operationId: "consultarParametroGeral"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/ConsultarParametroGeralResponse"
+        400:
+          description: "Bad Request"
+        401:
+          description: "Unauthorized"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+      - basicAuth: []   
+      
+  /atualizarParametroGeral:
+    put:
+      tags:
+        - "ParametrizacaoGeralPreFormalizacao"
+      operationId: "atualizarParametroGeral"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: '#/definitions/AtualizarParametroGeralRequest'
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+           $ref: '#/definitions/AtualizarParametroGeralResponse'
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - basicAuth: []   
+
+  /inserirRegraDocumento:
+    post:
+      tags:
+      - "ParametrizacaoRegraDocumentoPreFormalizacao"
+      operationId: "inserirRegraDocumento"
+      consumes:
+        - "application/json"      
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: '#/definitions/InserirRegraDocumentoRequest'
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+           $ref: '#/definitions/InserirRegraDocumentoResponse'
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - basicAuth: []
+        
+  /editarRegraDocumento:
+    put:
+      tags:
+        - "ParametrizacaoRegraDocumentoPreFormalizacao"
+      operationId: "editarRegraDocumento"
+      consumes:
+        - "application/json"      
+      produces:
+        - "application/json"
+      parameters:
+        - name: "editarRegraDocumento"
+          in: "body"
+          schema:
+            $ref: '#/definitions/EditarRegraDocumentoRequest'
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+           $ref: '#/definitions/EditarRegraDocumentoResponse'
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - basicAuth: []     
+
+  /consultarRegraDocumento:
+    get:
+      tags:
+      - "ParametrizacaoRegraDocumentoPreFormalizacao"
+      operationId: "consultarRegraDocumento"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/ConsultarRegraDocumentoResponse"
+        400:
+          description: "Bad Request"
+        401:
+          description: "Unauthorized"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+      - basicAuth: []   
+
+  /consultarHistoricoRegraDocumento:
+    get:
+      tags:
+      - "ParametrizacaoRegraDocumentoPreFormalizacao"
+      operationId: "consultarHistoricoRegraDocumento"  
+      produces:
+        - "application/json"
+      parameters:
+        - name: "codigoRegra"
+          type: "integer"
+          format: "int64"
+          in: "query"
+          required: true
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+           $ref: '#/definitions/ConsultarHistoricoRegraDocumentoResponse'
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - basicAuth: []     
+
+#novas operacoes para a tela de parametrizacao de pré formalização 1.2
+  /inserirParametrizacaoPreformalizacao:
+    post:
+      tags:
+      - "ParametrizacaoPreFormalizacao"
+      operationId: "inserirParamPreForm"
+      consumes:
+        - "application/json"      
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: '#/definitions/InserirParamPreFormRequest'
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+           $ref: '#/definitions/InserirParamPreFormResponse'
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - basicAuth: []
+
+  /consultarParametrizacaoPreFormalizacao:
+    get:
+      tags:
+      - "ParametrizacaoPreFormalizacao"
+      operationId: "consultarParamPreForm"  
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+           $ref: '#/definitions/ConsultarParamPreFormResponse'
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - basicAuth: []
+        
+  /editarParametrizacaoPreFormalizacao:
+    put:
+      tags:
+      - "ParametrizacaoPreFormalizacao"
+      operationId: "editarParamPreForm"
+      consumes:
+        - "application/json"      
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: '#/definitions/EditarParamPreFormRequest'
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+           $ref: '#/definitions/EditarParamPreFormResponse'
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - basicAuth: []
+        
+#novas operacoes para a tela de param campo documento pré formalização 1.3
+  /inserirCampoDocumento:
+    post:
+      tags:
+      - "ParametrizacaoCampoDocumentoPreFormalizacao"
+      operationId: "inserirCampoDocumento"
+      consumes:
+        - "application/json"      
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: '#/definitions/InserirCampoDocumentoRequest'
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+           $ref: '#/definitions/InserirCampoDocumentoResponse'
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - basicAuth: []
+
+  /consultarCampoDocumento:
+    get:
+      tags:
+      - "ParametrizacaoCampoDocumentoPreFormalizacao"
+      operationId: "consultarCampoDocumento"  
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+           $ref: '#/definitions/ConsultarCampoDocumentoResponse'
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - basicAuth: []
+        
+  /editarCampoDocumento:
+    put:
+      tags:
+        - "ParametrizacaoCampoDocumentoPreFormalizacao"
+      operationId: "editarCampoDocumento"
+      consumes:
+        - "application/json"      
+      produces:
+        - "application/json"
+      parameters:
+        - name: "editarAlcada"
+          in: "body"
+          schema:
+            $ref: '#/definitions/EditarCampoDocumentoRequest'
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+           $ref: '#/definitions/EditarCampoDocumentoResponse'
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - basicAuth: []    
+        
+  /inativarCampoDocumento:
+    delete:
+      tags:
+        - "ParametrizacaoCampoDocumentoPreFormalizacao"
+      operationId: "inativarCampoDocumento"
+      consumes:
+        - "application/json"      
+      produces:
+        - "application/json"
+      parameters:
+        - name: "inativarCampoDocumento"
+          in: "body"
+          required: true
+          schema:
+            $ref: '#/definitions/InativarCampoDocumentoRequest'
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+           $ref: '#/definitions/InativarCampoDocumentoResponse'
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - basicAuth: []     
+        
+  /consultarHistoricoCampoDocumento:
+    get:
+      tags:
+      - "ParametrizacaoCampoDocumentoPreFormalizacao"
+      operationId: "consultarHistoricoCampoDocumento"  
+      produces:
+        - "application/json"
+      parameters:
+        - name: "codigoRegra"
+          type: "integer"
+          format: "int64"
+          in: "query"
+          required: true
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+           $ref: '#/definitions/ConsultarHistoricoCampoDocumentoResponse'
+        "400":
+          description: "Bad Request"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "Not Found"
+        "500":
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Erro"
+      security:
+        - basicAuth: []     
+securityDefinitions:
+  basicAuth:
+    type: "basic"
+
+definitions:
+  ConsultarParametroGeralResponse:
+    type: "object"
+    properties:
+      listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"
+      formalizacaoAutomatica:
+        type: "boolean"
+        example: true
+      descricaoLogin:
+        type: "string"
+        example: "descricaoLogin"
+      dataInclusao:
+        type: "string"
+        example: "2010-10-10 10:50:30"
+      dataAlteracao:
+        type: "string"
+        example: "2010-10-10 10:50:30"
+    required:
+      - listaStatusRespostaServico
+      - formalizacaoAutomatica
+      - descricaoLogin
+      - dataInclusao
+      - dataAlteracao
+  
+  AtualizarParametroGeralRequest:
+    type: "object"
+    properties:
+      formalizacaoAutomatica:
+        type: "boolean"
+        example: true
+      descricaoLogin:
+        type: "string"
+        example: "descricaoLogin"
+    required:
+      - formalizacaoAutomatica
+      - descricaoLogin
+      
+  AtualizarParametroGeralResponse:
+    type: "object"
+    properties:
+      listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"  
+    required:
+      - listaStatusRespostaServico        
+
+  InserirRegraDocumentoRequest:
+   type: "object"
+   properties:
+    documento:
+      $ref: "#/definitions/Documento"
+    descricaoLogin:
+      type: "string"
+      example: "descricaoLogin"
+    ativo:
+     type: "boolean"
+     example: true
+   required:
+    - documento
+    - descricaoLogin
+    - ativo
+    
+  Documento:
+    type: "object"
+    properties:
+     codigo:
+      type: "integer"
+      example: 12345
+     campos:
+       $ref: "#/definitions/ListaCampos"  
+    required:
+      - codigo
+      - descricao
+      - campos
+       
+  ListaCampos:
+    type: "array"
+    items:
+      $ref: "#/definitions/Campos"  
+      
+  Campos:
+    type: "object"
+    properties:
+      codigo:
+       type: "integer"
+       example: 12345
+      acuracia:
+        type: "number"
+        format: "double"
+        example: 55.55
+      similaridade:
+        type: "number"
+        format: "double"
+        example: 55.55
+    required:
+      - codigo
+      - acuracia
+      - similaridade
+        
+  InserirRegraDocumentoResponse:
+    type: "object"
+    properties:
+      listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"  
+    required:
+      - listaStatusRespostaServico   
+      
+  EditarRegraDocumentoRequest:
+   type: "object"
+   properties:
+    codigoRegra:
+      type: "integer"
+      example: 12345
+    documento:
+      $ref: "#/definitions/Documento"
+    descricaoLogin:
+      type: "string"
+      example: "descricaoLogin"
+    ativo:
+     type: "boolean"
+     example: true
+   required:
+    - codigoRegra
+    - documento
+    - descricaoLogin
+    - ativo    
+      
+  EditarRegraDocumentoResponse:
+    type: "object"
+    properties:
+     listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"  
+    required:
+      - listaStatusRespostaServico 
+  
+  ConsultarRegraDocumentoResponse:
+    type: "object"
+    properties:
+      listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"      
+      regras:
+        $ref: "#/definitions/ListaConsultaDocumento"
+    required:
+        - listaStatusRespostaServico
+        - regras  
+
+  ListaConsultaDocumento:
+    type: "array"
+    items:
+      $ref: "#/definitions/ConsultaDocumento"
+      
+  ConsultaDocumento:
+    type: "object"
+    properties:
+      codigoRegra:
+        type: "integer"
+        example: 12345
+      documento:
+        $ref: "#/definitions/ConsultaRegraDocumento"        
+      descricaoLogin:
+        type: "string"
+        example: "descricao Login"
+      dataInclusao:
+        type: "string"
+        example: "2010-10-10"
+      dataAlteracao:
+        type: "string"
+        example: "data Alteracao"
+      ativo:
+        type: "boolean"
+        example: true   
+    required:
+      - codigoRegra
+      - documento
+      - descricaoLogin
+      - dataInclusao
+      - dataAlteracao
+      - ativo
+      
+  ConsultaRegraDocumento: 
+    type: "object"
+    properties:
+      codigo:
+        type: "integer"
+        example: 1234
+      descricao:
+        type: "string"
+        example: "descricao"
+      campos:
+        $ref: "#/definitions/ListaConsultaCamposDocumento"
+
+  ListaConsultaCamposDocumento:
+    type: "array"
+    items:
+      $ref: "#/definitions/ConsultaCamposDocumento"        
+        
+  ConsultaCamposDocumento:
+    type: "object"
+    properties:
+      codigo:
+       type: "integer"
+       example: 12345
+      descricao:
+        type: "string"
+        example: "descricao"
+      acuracia:
+        type: "number"
+        format: "double"
+        example: 55.55
+      similaridade:
+        type: "number"
+        format: "double"
+        example: 55.55
+    required:
+      - codigo
+      - descricao
+      - acuracia
+      - similaridade
+              
+      
+  ConsultarHistoricoRegraDocumentoResponse:
+    type: "object"
+    properties:
+      listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"      
+      regra:
+        $ref: "#/definitions/RegraHistorico"
+    required:
+        - listaStatusRespostaServico
+        - regra  
+        
+  RegraHistorico:
+    type: "object"
+    properties:
+      codigoRegra:
+        type: "integer"
+        example: 12345
+      historico:
+        $ref: "#/definitions/ListaHistorico"
+    required:
+      - codigoRegra
+      - historico
+        
+  ListaHistorico:
+    type: "array"
+    items:
+      $ref: "#/definitions/Historico"
+      
+  Historico:
+    type: "object"
+    properties:
+      codigoHistorico:
+        type: "integer"
+        example: 12345
+      documento:
+        $ref: "#/definitions/DocumentoHistorico"  
+    required:
+      - codigoHistorico
+      - documento
+            
+  DocumentoHistorico:
+    type: "object"
+    properties:
+      codigo:
+        type: "integer"
+        example: 12345
+      descricao:
+        type: "string"
+        example: "descricao"
+      campos:
+        $ref: "#/definitions/ListaCamposHistorico"
+    required: 
+      - codigo
+      - descricao
+      - campos
+
+  ListaCamposHistorico:   
+    type: "array"
+    items:
+      $ref: "#/definitions/CamposHistorico"  
+  
+  CamposHistorico:
+    type: "object"
+    properties:
+      codigo:
+       type: "integer"
+       example: 12345
+      descricao:
+        type: "string"
+        example: "descricao"
+      acuracia:
+        type: "number"
+        format: "double"
+        example: 55.55
+      similaridade:
+        type: "number"
+        format: "double"
+        example: 55.55
+      descricaoLogin:
+        type: "string"
+        example: "descricao Login"
+      dataInclusao:
+        type: "string"
+        example: "2010-10-10"
+      dataAlteracao:
+        type: "string"
+        example: "descricao Alteracao"
+      ativo:
+        type: "boolean"
+        example: true
+    required:
+      - codigo
+      - descricao
+      - acuracia
+      - similaridade  
+      - descricaoLogin
+      - dataInclusao
+      - dataAlteracao
+      - ativo
+
+#novos tipos para tela de parametrizacao de pré formalização 1.2
+  InserirParamPreFormRequest:
+    type: "object"
+    required:
+      - produtos
+      - subProdutos
+      - parceirosComerciais
+      - tiposParceiro
+      - filiais
+      - descricaoLogin
+      - ativo
+    properties:
+      produtos:
+        $ref: "#/definitions/ListaCodigoInfo"
+      subProdutos:
+         $ref: "#/definitions/ListaSubProdutoParamPreFormInfo"
+      parceirosComerciais:
+        $ref: "#/definitions/ListaParceiroComercialParamPreFormInfo"
+      tiposParceiro:
+        $ref: "#/definitions/ListaCodigoInfo"
+      filiais:
+        $ref: "#/definitions/ListaCodigoInfo"  
+      descricaoLogin:
+        type: "string"
+        example: "descricaoLogin"
+      ativo:
+        type: "boolean"
+  InserirParamPreFormResponse:
+    type: "object"
+    required:
+      - listaStatusRespostaServico
+    properties:
+      listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"
+  ConsultarParamPreFormResponse:
+    type: "array"
+    items:
+      $ref: "#/definitions/ParamPreFormInfo"
+
+  EditarParamPreFormRequest:
+    type: "object"
+    required:
+      - codigoParametrizacaoFormalizacao 
+      - produtos
+      - subProdutos
+      - parceirosComerciais
+      - tiposParceiro
+      - filiais
+      - descricaoLogin
+      - ativo
+    properties:
+      codigoParametrizacaoFormalizacao:
+        type: "integer"
+        format: "int64"
+        example: 1
+      produtos:
+        $ref: "#/definitions/ListaCodigoInfo"
+      subProdutos:
+         $ref: "#/definitions/ListaSubProdutoParamPreFormInfo"
+      parceirosComerciais:
+        $ref: "#/definitions/ListaParceiroComercialParamPreFormInfo"
+      tiposParceiro:
+        $ref: "#/definitions/ListaCodigoInfo"
+      filiais:
+        $ref: "#/definitions/ListaCodigoInfo"  
+      descricaoLogin:
+        type: "string"
+        example: "descricaoLogin"
+      ativo:
+        type: "boolean"
+        
+  EditarParamPreFormResponse:
+    type: "object"
+    required:
+      - listaStatusRespostaServico    
+    properties:
+      listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"
+  ListaParceiroComercialParamPreFormInfo:
+    type: "array"
+    items:
+      $ref: "#/definitions/ParceiroComercialParamPreFormInfo"
+  ParceiroComercialParamPreFormInfo:
+    type: "object"
+    required:
+      - codigo
+      - codigoTipoParceiro
+      - codigoFilial
+    properties:
+      codigo:
+        type: "integer"
+        format: "int64"
+        example: 1
+      codigoTipoParceiro:
+        type: "integer"
+        format: "int64"
+        example: 1
+      codigoFilial:
+        type: "integer"
+        format: "int64"
+        example: 1
+  ListaSubProdutoParamPreFormInfo:
+    type: "array"
+    items:
+      $ref: "#/definitions/SubProdutosParamPreFormInfo"
+  SubProdutosParamPreFormInfo:
+    type: "object"
+    required:
+      - codigo
+      - codigoProduto
+    properties:
+      codigo:
+        type: "integer"
+        format: "int64"
+      codigoProduto:
+        type: "integer"
+        format: "int64"
+  SubProdutosConsultaParamPreFormInfo:
+    type: "object"
+    required: 
+      - codigo
+      - descricao
+      - codigoProduto
+    properties:
+      codigo:
+        type: "integer"
+        format: "int64"
+      descricao:
+        type: "string"
+        example: "descricao"
+      codigoProduto:
+        type: "integer"
+        format: "int64"
+
+  ParamPreFormInfo:
+    type: "object"
+    required:
+      - codigoParametrizacaoFormalizacao
+      - produtos
+      - subProdutos
+      - parceirosComerciais
+      - tiposParceiro
+      - filiais
+      - descricaoLogin
+      - ativo
+      - dataInclusao
+      - dataAlteracao
+    properties:
+      codigoParametrizacaoFormalizacao:
+        type: "integer"
+        format: "int64"
+        example: 1
+      produtos:
+        $ref: "#/definitions/ListaCodigoDescricaoInfo"
+      subProdutos:
+        type: "array"
+        items:
+            $ref: "#/definitions/SubProdutosConsultaParamPreFormInfo"
+
+      parceirosComerciais:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            codigo:
+              type: "integer"
+              format: "int64"
+            descricao:
+              type: "string"
+            codigoTipoParceiro:
+              type: "integer"
+              format: "int64"
+            codigoFilial:
+              type: "integer"
+              format: "int64"
+      tiposParceiro:
+        $ref: "#/definitions/ListaCodigoDescricaoInfo"
+      filiais:
+        $ref: "#/definitions/ListaCodigoDescricaoInfo"
+      descricaoLogin:
+        type: "string"
+        example: "descricaoLogin"
+      ativo:
+        type: "boolean"
+      dataInclusao:
+        type: "string"
+        example: "2010-10-10 10:50:30"
+      dataAlteracao:
+        type: "string"
+        example: "2010-10-10 10:50:30"
+            
+  ListaCodigoInfo:
+    type: "array"
+    items:
+      type: "object"
+      required:
+        - codigo
+      properties:
+        codigo:
+          type: "integer"
+          format: "int64" 
+          example: 1
+  ListaCodigoDescricaoInfo:
+    type: "array"
+    items:
+      type: "object"
+      required:
+        - codigo
+        - descricao
+      properties:
+        codigo:
+          type: "integer"
+          format: "int64"
+        descricao:
+          type: "string"
+          example: "descricao - 1"
+
+#novas operacoes para a tela de param campo documento pré formalização 1.3
+  InserirCampoDocumentoRequest:
+   type: "object"
+   properties:
+    documento:
+      $ref: "#/definitions/TipoDocumento"
+    descricaoLogin:
+      type: "string"
+      example: "descricaoLogin"
+    ativo:
+     type: "boolean"
+     example: true
+   required:
+    - documento
+    - descricaoLogin
+    - ativo
+    
+  TipoDocumento:
+    type: "object"
+    properties:
+     codigo:
+      type: "integer"
+      example: 12345
+     campos:
+       $ref: "#/definitions/ListaRegraCampos"  
+    required:
+      - codigo
+      - campos
+       
+  ListaRegraCampos:
+    type: "array"
+    items:
+      $ref: "#/definitions/RegraCampos"  
+      
+  RegraCampos:
+    type: "object"
+    properties:
+      codigo:
+       type: "integer"
+       example: 12345
+      comparador:
+       $ref: "#/definitions/Comparador"  
+      valor:
+         type: "string"
+         example: "30"
+    required:
+      - codigo
+      - comparador
+      - valor
+      
+  Comparador:
+    type: "object"
+    properties:
+     codigo:
+      type: "integer"
+      example: 12345
+    required:
+      - codigo
+        
+  InserirCampoDocumentoResponse:
+    type: "object"
+    properties:
+      listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"  
+    required:
+      - listaStatusRespostaServico    
+
+  ConsultarCampoDocumentoResponse:
+    type: "object"
+    properties:
+      listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"      
+      camposDocumento:
+        $ref: "#/definitions/ListaCamposDocumento"
+    required:
+        - listaStatusRespostaServico
+        - camposDocumento  
+        
+  ListaCamposDocumento:
+    type: "array"
+    items:
+      $ref: "#/definitions/CamposDocumento"
+      
+  CamposDocumento:
+    type: "object"
+    properties:
+      codigoRegra:
+        type: "integer"
+        example: 12345
+      documento:
+        $ref: "#/definitions/TipoDocumentoConsulta"        
+      descricaoLogin:
+        type: "string"
+        example: "descricao Login"
+      dataInclusao:
+        type: "string"
+        example: "2010-10-10"
+      dataAlteracao:
+        type: "string"
+        example: "data Alteracao"
+      ativo:
+        type: "boolean"
+        example: true   
+    required:
+      - codigoRegra
+      - documento
+      - descricaoLogin
+      - dataInclusao
+      - dataAlteracao
+      - ativo      
+
+  TipoDocumentoConsulta:
+    type: "object"
+    properties:
+     codigo:
+      type: "integer"
+      example: 12345
+     descricao:
+      type: "string"
+      example: "descricao"
+     campos:
+       $ref: "#/definitions/ListaRegraCamposConsulta"  
+    required:
+      - codigo
+      - descricao
+      - campos  
+
+  ListaRegraCamposConsulta:
+    type: "array"
+    items:
+      $ref: "#/definitions/RegraCamposConsulta"      
+      
+  RegraCamposConsulta:
+    type: "object"
+    properties:
+      codigo:
+       type: "integer"
+       example: 12345
+      descricao:
+        type: "string"
+        example: "descricao"
+      comparador:
+       $ref: "#/definitions/ComparadorConsulta"  
+      valor:
+         type: "string"
+         example: "30"
+    required:
+      - codigo
+      - descricao
+      - comparador
+      - valor      
+      
+  ComparadorConsulta:
+    type: "object"
+    properties:
+     codigo:
+      type: "integer"
+      example: 12345  
+     descricao:
+      type: "string"
+      example: "descricao"
+    required:
+      - codigo
+      - descricao
+      
+  EditarCampoDocumentoRequest:
+   type: "object"
+   properties:
+    codigoRegra:
+      type: "integer"
+      example: 12345
+    tipoDocumento:
+      $ref: "#/definitions/TipoDocumento"
+    descricaoLogin:
+      type: "string"
+      example: "descricaoLogin"
+    ativo:
+     type: "boolean"
+     example: true
+   required:
+    - codigoRegra
+    - tipoDocumento
+    - descricaoLogin
+    - ativo    
+      
+  EditarCampoDocumentoResponse:
+    type: "object"
+    properties:
+     listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"  
+    required:
+      - listaStatusRespostaServico 
+
+  ConsultarHistoricoCampoDocumentoResponse:
+    type: "object"
+    properties:
+      listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"      
+      campoDocumento:
+        $ref: "#/definitions/RegraHistoricoCampoDocumento"
+    required:
+        - listaStatusRespostaServico
+        - regraHistoricoCampoDocumento  
+        
+  RegraHistoricoCampoDocumento:
+    type: "object"
+    properties:
+      codigoRegra:
+        type: "integer"
+        example: 12345
+      camposDocumento:
+        $ref: "#/definitions/ListaHistoricoCampoDocumento"
+    required:
+      - codigoRegra
+      - camposDocumento
+        
+  ListaHistoricoCampoDocumento:
+    type: "array"
+    items:
+      $ref: "#/definitions/HistoricoCampoDocumento"
+      
+  HistoricoCampoDocumento:
+    type: "object"
+    properties:
+      codigoHistorico:
+        type: "integer"
+        example: 12345
+      documento:
+        $ref: "#/definitions/TipoDocumentoCampoHistorico"  
+    required:
+      - codigoHistorico
+      - documento
+            
+  TipoDocumentoCampoHistorico:
+    type: "object"
+    properties:
+      codigo:
+        type: "integer"
+        example: 12345
+      descricao:
+        type: "string"
+        example: "descricao"
+      campos:
+        $ref: "#/definitions/ListaCamposDocumentoHistorico"
+    required: 
+      - codigo
+      - descricao
+      - campos
+
+  ListaCamposDocumentoHistorico:   
+    type: "array"
+    items:
+      $ref: "#/definitions/RegraCampoDocumentoHistorico"  
+  
+  RegraCampoDocumentoHistorico:
+    type: "object"
+    properties:
+      codigo:
+       type: "integer"
+       example: 12345
+      descricao:
+        type: "string"
+        example: "descricao"
+      descricaoLogin:
+        type: "string"
+        example: "descricao Login"
+      dataInclusao:
+        type: "string"
+        example: "2010-10-10"
+      dataAlteracao:
+        type: "string"
+        example: "descricao Alteracao"
+      ativo:
+        type: "boolean"
+        example: true
+    required:
+      - codigo
+      - descricao
+      - descricaoLogin
+      - dataInclusao
+      - dataAlteracao
+      - ativo      
+      
+  InativarCampoDocumentoRequest:
+    type: "object"
+    required:
+      - codigoParametrizacao
+      - descricaoLogin
+    properties:
+      codigoParametrizacao:
+        type: "integer"
+        format: "int64"
+      descricaoLogin:
+        type: "string"
+       
+  InativarCampoDocumentoResponse:
+    type: "object"
+    required:
+      - listaStatusRespostaServico
+    properties:
+      listaStatusRespostaServico:
+        $ref: "#/definitions/ListaStatusRespostaServico"
+        
+  ListaStatusRespostaServico:
+    type: "array"
+    items:
+      $ref: "#/definitions/StatusResponse"
+  StatusResponse:
+    type: "object"
+    properties:
+      codigo:
+        type: "integer"
+        example: 0
+      mensagem:
+        type: "string"
+        example: "Executado com sucesso"
+      criticidade:
+        type: "string"
+        example: "Baixa"
+      sistemaOrigem:
+        type: "string"
+        example: "GFOR"
+      servicoOrigem:
+        type: "string"
+        example: "springboot-gfor-base"
+    required:
+      - codigo
+      - mensagem
+
+  Erro:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        example: 20
+      correlationId:
+        type: "string"
+        example: "11b31a66-76d1-3a20-9dac-6db59996d5b3"
+      message:
+        type: "string"
+        example: "erro de validacao"
